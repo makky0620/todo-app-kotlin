@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TODO Application</string>
     <string name="add">追加</string>
+    <string name="add_button">Add</string>
 </resources>
