@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <data>
-        <import type="android.view.View"/>
-        <import type="androidx.core.content.ContextCompat"/>
-        <variable
-            name="viewmodel"
-            type="com.example.todoapplication.tasks.TasksViewModel"/>
-    </data>
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".tasks.TasksFragment">
 
     <LinearLayout
         android:id="@+id/fragment_layout"
@@ -16,5 +9,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <TextView
+            android:id="@+id/hello"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
     </LinearLayout>
 </layout>
