@@ -2,6 +2,7 @@ package com.example.todoapplication.tasks
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.ProxyFileDescriptorCallback
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -14,18 +15,26 @@ import com.example.todoapplication.databinding.FragmentAddTaskDialogBinding
 /**
  * A simple [Fragment] subclass.
  */
-class AddTaskDialog : DialogFragment() {
+
+class AddTaskDialog(val callback: (name: String, content: String) -> Unit) : DialogFragment() {
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(context!!)
 
-        val binding = DataBindingUtil.inflate<FragmentAddTaskDialogBinding>(LayoutInflater.from(activity), R.layout.fragment_add_task_dialog, null, false)
+        val binding = DataBindingUtil.inflate<FragmentAddTaskDialogBinding>(
+            LayoutInflater.from(activity),
+            R.layout.fragment_add_task_dialog,
+            null,
+            false
+        )
         val view = binding.root
 
         builder.setView(view)
             .setTitle(R.string.add_task)
             .setIcon(R.mipmap.ic_launcher)
             .setPositiveButton(R.string.add) { dialog, _ ->
-                Toast.makeText(activity, binding.taskName.text, Toast.LENGTH_SHORT).show()
+                callback(binding.taskName.text.toString(), binding.taskContent.text.toString())
+                dialog.dismiss()
             }
             .setNegativeButton(R.string.close) { dialog, _ -> dialog.dismiss() }
 

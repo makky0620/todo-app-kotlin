@@ -11,22 +11,28 @@ import com.example.todoapplication.databinding.FragmentTasksBinding
 
 class TasksFragment : Fragment() {
 
+    private lateinit var binding: FragmentTasksBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentTasksBinding>(
-            inflater, R.layout.fragment_tasks,
-            container, false
-        )
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tasks, container, false)
 
-        val addDialog = AddTaskDialog()
+        val addDialog = AddTaskDialog { name: String, content: String -> addTask(name, content) }
         binding.addTaskButton.setOnClickListener {
             addDialog.show(fragmentManager!!, "add")
         }
 
         return binding.root
+    }
+
+    private fun addTask(name: String, content: String) {
+        binding.invalidateAll()
+        binding.taskName.text = getString(R.string.task_name) + ": " + name
+        binding.taskContent.text = getString(R.string.task_content) + ": " + content
+        binding.taskName.visibility = View.VISIBLE
+        binding.taskContent.visibility = View.VISIBLE
     }
 }
