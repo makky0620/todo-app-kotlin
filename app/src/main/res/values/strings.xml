@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">TODO Application</string>
     <string name="add">追加</string>
-    <string name="add_button">Add</string>
+    <string name="add_task">タスクを追加</string>
+    <string name="close">閉じる</string>
+    <string name="task_name">タスク名</string>
+    <string name="task_content">内容</string>
 </resources>
