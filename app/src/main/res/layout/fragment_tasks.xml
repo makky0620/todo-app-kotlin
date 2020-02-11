@@ -15,6 +15,12 @@
             android:layout_height="wrap_content"
             android:text="@string/add_task" />
 
+        <Button
+            android:id="@+id/add_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="アイテム追加" />
+
         <TextView
             android:id="@+id/task_name"
             style="@style/TaskItem"
@@ -30,6 +36,13 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:visibility="gone" />
+
+        <fragment
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.todoapplication.tasks.TaskItemFragment"
+            tools:layout="@layout/fragment_taskitem_list"/>
 
     </LinearLayout>
 </layout>
