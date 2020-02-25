@@ -28,20 +28,6 @@ class TaskItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_taskitem_list, container, false)
-
-        // Set the adapter
-        if (view is RecyclerView) {
-
-
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyTaskItemRecyclerViewAdapter(items)
-            }
-        }
         return view
     }
 }
